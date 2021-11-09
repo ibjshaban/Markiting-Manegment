@@ -40,6 +40,10 @@ Route::group(['middleware' => ['ApiLang', 'cors'], 'prefix' => 'v1', 'namespace'
 			Route::post("transaction/multi_delete","TransactionControllerApi@multi_delete"); 
 			Route::apiResource("shipping","ShippingControllerApi", ["as" => "api.shipping"]); 
 			Route::post("shipping/multi_delete","ShippingControllerApi@multi_delete"); 
+			Route::apiResource("advertisement","AdvertisementControllerApi", ["as" => "api.advertisement"]); 
+			Route::post("advertisement/multi_delete","AdvertisementControllerApi@multi_delete"); 
+			Route::post("advertisement/upload/multi","AdvertisementControllerApi@multi_upload"); 
+			Route::post("advertisement/delete/file","AdvertisementControllerApi@delete_file"); 
 			//Auth-Api-End//
 	});
 	// Insert your Api Here End //

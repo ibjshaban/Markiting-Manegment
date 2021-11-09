@@ -56,6 +56,10 @@ Route::group(['prefix' => app('admin'), 'middleware' => 'Lang'], function () {
 		Route::post('transaction/multi_delete','Admin\TransactionController@multi_delete');
 		Route::resource('shipping','Admin\ShippingController');
 		Route::post('shipping/multi_delete','Admin\ShippingController@multi_delete');
+		Route::resource('advertisement','Admin\AdvertisementController');
+		Route::post('advertisement/multi_delete','Admin\AdvertisementController@multi_delete');
+		//Route::post('advertisement/upload/multi','Admin\AdvertisementController@multi_upload');
+		Route::post('advertisement/delete/file','Admin\AdvertisementController@delete_file');
 		////////AdminRoutes/*End*///////////////
     });
 });
@@ -94,6 +98,9 @@ Route::group(['middleware' => ['Lang'], 'prefix' => 'marketer'], function () {
         Route::get('transaction', 'Admin\TransactionController@indexMarketer');
         // Shippings
         Route::get('shipping','Admin\ShippingController@indexMarketer');
+        // Advertisement
+        Route::get('advertisement','Admin\AdvertisementController@indexMarketer');
+        Route::get('advertisement/{id}','Admin\AdvertisementController@show');
     });
 });
 ////////MarketerRoutes/*End*///////////////

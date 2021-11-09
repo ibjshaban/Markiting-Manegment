@@ -6,6 +6,7 @@
 * [it v 1.6.32]
 */
 return [
+	"advertisement"=>["create","read","update","delete"],
 	"shipping"=>["create","read","update","delete"],
 	"transaction"=>["create","read","update","delete"],
 	""=>["create","read","update","delete"],

@@ -84,6 +84,37 @@
 </div>
 <!--transaction_end-->
 
+    <!--shipping_start-->
+    <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-primary">
+            <div class="inner">
+                <h3>{{ mK(App\Models\Shipping::count()) }}</h3>
+                <p>{{ trans("admin.shipping") }}</p>
+            </div>
+            <div class="icon">
+                <i class="fa fa-truck-moving"></i>
+            </div>
+            <a href="{{ aurl("shipping") }}" class="small-box-footer">{{ trans("admin.shipping") }} <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <!--shipping_end-->
+    <!--advertisement_start-->
+    <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-primary">
+            <div class="inner">
+                <h3>{{ mK(App\Models\Advertisement::count()) }}</h3>
+                <p>{{ trans("admin.advertisement") }}</p>
+            </div>
+            <div class="icon">
+                <i class="fab fa-adversal"></i>
+            </div>
+            <a href="{{ aurl("advertisement") }}" class="small-box-footer">{{ trans("admin.advertisement") }} <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <!--advertisement_end-->
+
 @endif
 
 @if(Auth::guard('marketer')->check())
@@ -158,22 +189,34 @@
         </div>
     </div>
     <!--transaction_end-->
-@endif
-
-
-
-<!--shipping_start-->
-<div class="col-lg-3 col-6">
-    <!-- small box -->
-    <div class="small-box bg-primary">
-      <div class="inner">
-        <h3>{{ mK(App\Models\Shipping::count()) }}</h3>
-        <p>{{ trans("admin.shipping") }}</p>
-      </div>
-      <div class="icon">
-        <i class="fa fa-icons"></i>
-      </div>
-      <a href="{{ aurl("shipping") }}" class="small-box-footer">{{ trans("admin.shipping") }} <i class="fas fa-arrow-circle-right"></i></a>
+    <!--shipping_start-->
+    <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-primary">
+            <div class="inner">
+                <h3>{{ mK(App\Models\Shipping::count()) }}</h3>
+                <p>{{ trans("admin.shipping") }}</p>
+            </div>
+            <div class="icon">
+                <i class="fa fa-truck-moving"></i>
+            </div>
+            <a href="{{ url("marketer/shipping") }}" class="small-box-footer">{{ trans("admin.shipping") }} <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
     </div>
-</div>
-<!--shipping_end-->
+    <!--shipping_end-->
+    <!--advertisement_start-->
+    <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-primary">
+            <div class="inner">
+                <h3>{{ mK(App\Models\Advertisement::count()) }}</h3>
+                <p>{{ trans("admin.advertisement") }}</p>
+            </div>
+            <div class="icon">
+                <i class="fab fa-adversal"></i>
+            </div>
+            <a href="{{ url("marketer/advertisement") }}" class="small-box-footer">{{ trans("admin.advertisement") }} <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <!--advertisement_end-->
+@endif

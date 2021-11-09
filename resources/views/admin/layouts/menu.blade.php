@@ -194,6 +194,35 @@ with font-awesome or any other icon font library -->
         @endif
         <!--shipping_end_route-->
 
+        <!--advertisement_start_route-->
+        @if(admin()->user()->role("advertisement_show"))
+            <li class="nav-item {{active_link('advertisement','menu-open')}} ">
+                <a href="#" class="nav-link {{active_link('advertisement','active')}}">
+                    <i class="nav-icon fab fa-adversal"></i>
+                    <p>
+                        {{trans('admin.advertisement')}}
+                        <i class="right fas fa-angle-left"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{aurl('advertisement')}}" class="nav-link  {{active_link('advertisement','active')}}">
+                            <i class="fab fa-adversal nav-icon"></i>
+                            <p>{{trans('admin.advertisement')}} </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ aurl('advertisement/create') }}" class="nav-link">
+                            <i class="fas fa-plus nav-icon"></i>
+                            <p>{{trans('admin.create')}} </p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        @endif
+        <!--advertisement_end_route-->
+
+
     @endif
 
 
@@ -264,8 +293,30 @@ with font-awesome or any other icon font library -->
             </ul>
         </li>
     <!--shipping_end_route-->
+
+    <!--advertisement_start_route-->
+        <li class="nav-item {{active_link('advertisement','menu-open')}} ">
+            <a href="#" class="nav-link {{active_link('advertisement','active')}}">
+                <i class="nav-icon fab fa-adversal"></i>
+                <p>
+                    {{trans('admin.advertisement')}}
+                    <i class="right fas fa-angle-left"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{{url('marketer/advertisement')}}" class="nav-link  {{active_link('advertisement','active')}}">
+                        <i class="fab fa-adversal nav-icon"></i>
+                        <p>{{trans('admin.advertisement')}} </p>
+                    </a>
+                </li>
+            </ul>
+        </li>
+    <!--advertisement_end_route-->
+
 @endif
 <!--marketer_end_route-->
+
 
 
 

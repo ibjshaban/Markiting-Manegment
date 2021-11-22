@@ -6,6 +6,11 @@ use Illuminate\Support\Facades\Route;
 \L::LangNonymous(); //RunRouteLang'namespace'=>'Admin',
 
 Route::group(['prefix' => app('admin'), 'middleware' => 'Lang'], function () {
+
+    Route::get('/contacts', 'Admin\MessageController@index');
+    Route::get('/conversation/{id}', 'Admin\MessageController@getMessagesFor');
+    Route::post('/conversation/send', 'Admin\MessageController@sendMessage');
+
     Route::get('lock/screen', 'Admin\AdminAuthenticated@lock_screen');
     Route::get('theme/{id}', 'Admin\Dashboard@theme');
     Route::group(['middleware' => 'admin_guest'], function () {
@@ -62,10 +67,16 @@ Route::group(['prefix' => app('admin'), 'middleware' => 'Lang'], function () {
 		Route::post('advertisement/delete/file','Admin\AdvertisementController@delete_file');
 		////////AdminRoutes/*End*///////////////
     });
+
 });
 
 ////////MarketerRoutes/*Start*///////////////
 Route::group(['middleware' => ['Lang'], 'prefix' => 'marketer'], function () {
+
+    // Chat Route
+    Route::get('/contacts', 'Marketer\MessageController@index');
+    Route::get('/conversation/{id}', 'Marketer\MessageController@getMessagesFor');
+    Route::post('/conversation/send', 'Marketer\MessageController@sendMessage');
 
     // Marketer
     Route::get('login', 'Marketer\MarketerAuthenticated@login_page');

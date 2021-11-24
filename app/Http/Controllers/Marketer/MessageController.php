@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\DB;
 
 class MessageController extends Controller
 {
+    protected $admin_id;
+    public function __construct()
+    {
+        $this->admin_id= Admin::first()->id;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -20,29 +25,23 @@ class MessageController extends Controller
      */
     public function index()
     {
-        $contacts= Admin::get();
-        $unreadIds=Message::select(DB::raw("`from` as sender_id ,count(`from`) as messages_count"))
-            ->where('read',false)
-            ->where('to',auth()->id())
-            ->groupBy('from')
-            ->get();
-        $contacts= $contacts->map(function ($contact) use ($unreadIds){
-            $contactUnread = $unreadIds->where('sender_id',$contact->id)->first();
-            $contact->unread=$contactUnread ? $contactUnread->messages_count : 0;
-            return $contact;
-        });
-        return response()->json($contacts);
+        $contact= Admin::first();
+        $unread_messages=Message::where('read' , 0)->where('to' , auth('marketer')->id())
+            ->where('is_admin',true)->where('from',$contact->id)->count();
+
+        $contact->unread= $unread_messages ;
+        return response()->json([$contact,$unread_messages]);
     }
     public function getMessagesFor($id){
 
-        Message::where('from',$id)->where('to',Auth::id())->update(['read'=>true]);
+        Message::where('from',$id)->where('to',auth('marketer')->id())->update(['read'=>true]);
         $messages =Message::where(function ($q) use ($id){
-            $q->where('from',Auth::id());
+            $q->where('from',auth('marketer')->id());
             $q->where('to',$id);
         })
             ->orWhere(function ($q) use ($id){
             $q->where('from',$id);
-            $q->where('to',Auth::id());
+            $q->where('to',auth('marketer')->id());
         })
         ->get();
         return response()->json($messages);
@@ -51,9 +50,10 @@ class MessageController extends Controller
     public function sendMessage(Request $request)
     {
         $message=Message::create([
-            'from'=>auth()->id(),
-            'to'=>$request->contact_id,
-            'text'=>$request->text
+            'from'=> auth('marketer')->id(),
+            'to'=> $this->admin_id,
+            'text'=>$request->text,
+            'is_admin'=> false
         ]);
         broadcast(new NewMessageToAdmin($message));
         return response()->json($message);

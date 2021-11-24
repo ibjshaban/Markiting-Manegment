@@ -6,6 +6,7 @@
                 <div class="text">
                     {{message.text}}
                 </div>
+                <h6 style="font-size: 10px">{{message.created_at}}</h6>
             </li>
         </ul>
     </div>

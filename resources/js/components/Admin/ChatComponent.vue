@@ -29,7 +29,7 @@
                     this.handelIncoming(e.message);
                 });
 
-            axios.get('/contacts')
+            axios.get('/admin/contacts')
             .then((response)=>{
                 this.contacts=response.data;
             })
@@ -38,7 +38,7 @@
         methods:{
             startConversationWith(contact){
                 this.updateUnreadCount(contact,true)
-                axios.get(`/conversation/${contact.id}`)
+                axios.get(`/admin/conversation/${contact.id}`)
                 .then((response)=>{
                     this.messages=response.data;
                     this.selectedContact=contact;

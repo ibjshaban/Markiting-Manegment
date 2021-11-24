@@ -31,7 +31,7 @@
                if (!this.contact){
                    return;
                }
-               axios.post('/conversation/send',{
+               axios.post('/marketer/conversation/send',{
                    contact_id:this.contact.id,
                    text:text
                })

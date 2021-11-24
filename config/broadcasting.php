@@ -61,7 +61,7 @@ return [
 
     ],
     'options' => [
-        'cluster' => 'mt1',
+        'cluster' => 'ap1',
         'useTLS' => true
     ],
 

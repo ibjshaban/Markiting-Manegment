@@ -45,6 +45,7 @@ Route::group(['prefix' => app('admin'), 'middleware' => 'Lang'], function () {
 
 
         Route::resource('settings', 'Admin\Settings');
+        Route::view('customers-service', 'admin\chat');
         Route::resource('admingroups', 'Admin\AdminGroups');
         Route::post('admingroups/multi_delete', 'Admin\AdminGroups@multi_delete');
         Route::resource('admins', 'Admin\Admins');
@@ -74,6 +75,7 @@ Route::group(['prefix' => app('admin'), 'middleware' => 'Lang'], function () {
 Route::group(['middleware' => ['Lang'], 'prefix' => 'marketer'], function () {
 
     // Chat Route
+    Route::view('/customers-service', 'admin.marketer.chat');
     Route::get('/contacts', 'Marketer\MessageController@index');
     Route::get('/conversation/{id}', 'Marketer\MessageController@getMessagesFor');
     Route::post('/conversation/send', 'Marketer\MessageController@sendMessage');

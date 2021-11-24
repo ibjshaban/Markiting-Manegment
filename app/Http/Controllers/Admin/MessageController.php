@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Events\NewMessageToMarketer;
+use App\Models\Admin;
 use \App\Models\Message;
 use App\Models\Marketer;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class MessageController extends Controller
@@ -17,12 +17,19 @@ class MessageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    protected $admin_id;
+    public function __construct()
+    {
+        $this->admin_id= Admin::first()->id;
+    }
+
     public function index()
     {
         $contacts= Marketer::get();
         $unreadIds=Message::select(DB::raw("`from` as sender_id ,count(`from`) as messages_count"))
             ->where('read',false)
-            ->where('to',auth()->id())
+            ->where('to',$this->admin_id)
+            ->where('is_admin',false)
             ->groupBy('from')
             ->get();
         $contacts= $contacts->map(function ($contact) use ($unreadIds){
@@ -34,14 +41,14 @@ class MessageController extends Controller
     }
     public function getMessagesFor($id){
 
-        Message::where('from',$id)->where('to',Auth::id())->update(['read'=>true]);
+        Message::where('from',$id)->where('to',$this->admin_id)->update(['read'=>true]);
         $messages =Message::where(function ($q) use ($id){
-            $q->where('from',Auth::id());
+            $q->where('from',$this->admin_id);
             $q->where('to',$id);
         })
             ->orWhere(function ($q) use ($id){
             $q->where('from',$id);
-            $q->where('to',Auth::id());
+            $q->where('to',$this->admin_id);
         })
         ->get();
         return response()->json($messages);
@@ -50,9 +57,10 @@ class MessageController extends Controller
     public function sendMessage(Request $request)
     {
         $message=Message::create([
-            'from'=>auth()->id(),
+            'from'=>$this->admin_id,
             'to'=>$request->contact_id,
-            'text'=>$request->text
+            'text'=>$request->text,
+            'is_admin'=> true
         ]);
         broadcast(new NewMessageToMarketer($message));
         return response()->json($message);

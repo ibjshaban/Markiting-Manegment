@@ -19,6 +19,7 @@ class CreateMessagesTable extends Migration
             $table->integer('from')->unsigned();
             $table->integer('to')->unsigned();
             $table->tinyInteger('read')->default(0);
+            $table->boolean('is_admin')->default(0);
             $table->text('text');
         });
     }

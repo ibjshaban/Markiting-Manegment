@@ -83,7 +83,6 @@ with font-awesome or any other icon font library -->
         </li>
     @endif
 
-
     <!--marketer_start_route-->
     @if(admin()->user()->role("marketer_show"))
         <li class="nav-item {{active_link('marketer','menu-open')}} ">
@@ -224,7 +223,14 @@ with font-awesome or any other icon font library -->
 
 
     @endif
-
+    <li class="nav-item">
+        <a href="{{ aurl('customers-service') }}" class="nav-link  {{ active_link('customers-service','active') }}">
+            <i class="fas fa-headset"></i>
+            <p>
+                {{ trans('auth.Customers service') }} ({{\App\Models\Message::where('read' , 0)->where('to' , auth('admin')->id())->where('is_admin',false)->count()}})
+            </p>
+        </a>
+    </li>
 
 
 @elseif(Auth::guard('marketer')->check())
@@ -313,7 +319,14 @@ with font-awesome or any other icon font library -->
             </ul>
         </li>
     <!--advertisement_end_route-->
-
+    <li class="nav-item">
+        <a href="{{ url('/marketer/customers-service') }}" class="nav-link  {{ active_link('customers-service','active') }}">
+            <i class="fas fa-headset"></i>
+            <p>
+                {{ trans('auth.Customers service') }} ({{\App\Models\Message::where('read' , 0)->where('to' , auth('marketer')->id())->where('is_admin',true)->count()}})
+            </p>
+        </a>
+    </li>
 @endif
 <!--marketer_end_route-->
 

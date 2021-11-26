@@ -23,9 +23,10 @@
             }
         },
         mounted() {
-            Echo.private('messages.'+this.user.id).listen(
-                "NewMessage",
+            Echo.channel('messages.admin.'+this.user.id).listen(
+                "NewMessageToAdmin",
                 (e) => {
+                    console.log('samer')
                     this.handelIncoming(e.message);
                 });
 

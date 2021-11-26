@@ -13,10 +13,27 @@ use Spatie\Honeypot\ProtectAgainstSpam;
 | contains the "web" middleware group. Now create something great!
 |
  */
+
 Route::group(['middleware' => 'auth'],
 
 	function () {
-		Route::any('logout', 'Auth\LoginController@logout')->name('web.logout');
+        Route::post('/broadcasting/auth', function(\Illuminate\Http\Request $request) {
+            $pusher = new Pusher\Pusher(
+                env('PUSHER_APP_KEY'),
+                env('PUSHER_APP_SECRET'),
+                env('PUSHER_APP_ID'),
+                array(
+                    'cluster' => env('PUSHER_APP_CLUSTER'),
+                    'useTLS' => false,
+                    'host' => env('APP_URL'),
+                    'port' => 6001,
+                    'scheme' => 'http',
+                )
+            );
+            return $pusher->socket_auth($request->request->get('channel_name'), $request->request->get('socket_id'));
+        });
+
+        Route::any('logout', 'Auth\LoginController@logout')->name('web.logout');
 	});
 
 Route::get('/', function () {

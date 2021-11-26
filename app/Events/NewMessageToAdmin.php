@@ -33,7 +33,7 @@ class NewMessageToAdmin implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('messages.admin.'.$this->message->to);
+        return new Channel('messages.admin.'.$this->message->to);
     }
 
     public function broadcastWith()

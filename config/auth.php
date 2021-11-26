@@ -52,11 +52,6 @@ return [
 			'driver' => 'session',
 			'provider' => 'marketer',
 		],
-
-		// 'api' => [
-		// 	'driver' => 'token',
-		// 	'provider' => 'users',
-		// ],
 	],
 
 	/*

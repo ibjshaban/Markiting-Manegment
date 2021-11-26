@@ -23,8 +23,8 @@
             }
         },
         mounted() {
-            Echo.private('messages.'+this.user.id).listen(
-                "NewMessage",
+            Echo.channel('messages.marketer.'+this.user.id).listen(
+                "NewMessageToMarketer",
                 (e) => {
                     this.handelIncoming(e.message);
                 });

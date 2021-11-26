@@ -33,7 +33,7 @@ class NewMessageToMarketer implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('messages.marketer.'.$this->message->to);
+        return new Channel('messages.marketer.'.$this->message->to);
     }
 
     public function broadcastWith()

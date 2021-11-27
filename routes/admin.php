@@ -58,16 +58,30 @@ Route::group(['prefix' => app('admin'), 'middleware' => 'Lang'], function () {
         Route::resource('marketer', 'Marketer\MarketerController');
         Route::post('marketer/multi_delete', 'Marketer\MarketerController@multi_delete');
         Route::get('marketer/cleints/{cleints}', 'Marketer\MarketerController@cleints');
-        Route::resource('transaction','Admin\TransactionController');
-		Route::post('transaction/multi_delete','Admin\TransactionController@multi_delete');
-		Route::resource('shipping','Admin\ShippingController');
-		Route::post('shipping/multi_delete','Admin\ShippingController@multi_delete');
-		Route::resource('advertisement','Admin\AdvertisementController');
-		Route::post('advertisement/multi_delete','Admin\AdvertisementController@multi_delete');
-		//Route::post('advertisement/upload/multi','Admin\AdvertisementController@multi_upload');
-		Route::post('advertisement/delete/file','Admin\AdvertisementController@delete_file');
-		////////AdminRoutes/*End*///////////////
+        Route::resource('transaction', 'Admin\TransactionController');
+        Route::post('transaction/multi_delete', 'Admin\TransactionController@multi_delete');
+        Route::resource('shipping', 'Admin\ShippingController');
+        Route::post('shipping/multi_delete', 'Admin\ShippingController@multi_delete');
+        Route::resource('advertisement', 'Admin\AdvertisementController');
+        Route::post('advertisement/multi_delete', 'Admin\AdvertisementController@multi_delete');
+        //Route::post('advertisement/upload/multi','Admin\AdvertisementController@multi_upload');
+        Route::post('advertisement/delete/file', 'Admin\AdvertisementController@delete_file');
+        ////////AdminRoutes/*End*///////////////
+
     });
+
+    // Notifications
+    Route::post('/notification/get', 'Admin\NotificationController@get');
+    Route::post('/notification/read/', 'Admin\NotificationController@read');
+
+    // Notifications
+    Route::post('cleint/notification/get', 'Admin\NotificationController@get');
+    Route::post('marketer/notification/get', 'Admin\NotificationController@get');
+    Route::post('advertisement/notification/get', 'Admin\NotificationController@get');
+    Route::post('advertisement/notification/get', 'Admin\NotificationController@get');
+    Route::post('shipping/notification/get', 'Admin\NotificationController@get');
+    Route::post('transaction/notification/get', 'Admin\NotificationController@get');
+
 
 });
 
@@ -110,10 +124,15 @@ Route::group(['middleware' => ['Lang'], 'prefix' => 'marketer'], function () {
         // Transactions
         Route::get('transaction', 'Admin\TransactionController@indexMarketer');
         // Shippings
-        Route::get('shipping','Admin\ShippingController@indexMarketer');
+        Route::get('shipping', 'Admin\ShippingController@indexMarketer');
         // Advertisement
-        Route::get('advertisement','Admin\AdvertisementController@indexMarketer');
-        Route::get('advertisement/{id}','Admin\AdvertisementController@show');
+        Route::get('advertisement', 'Admin\AdvertisementController@indexMarketer');
+        Route::get('advertisement/{id}', 'Admin\AdvertisementController@show');
+
+
+        // Mailer Contact us
+        Route::get('/contact', 'Marketer\ContactController@contact')->name('contact');
+        Route::post('/contact', 'Marketer\ContactController@contactPost')->name('contactPost');
     });
 });
 ////////MarketerRoutes/*End*///////////////

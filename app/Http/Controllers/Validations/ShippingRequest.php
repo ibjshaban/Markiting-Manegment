@@ -28,6 +28,8 @@ class ShippingRequest extends FormRequest {
              'country'=>'required|string',
              'vehicle_types'=>'required|string',
              'cost'=>'required|numeric',
+             'shipping_type'=>'required|string',
+             'count'=>'required|integer',
 		];
 	}
 
@@ -36,6 +38,8 @@ class ShippingRequest extends FormRequest {
              'country'=>'required|string',
              'vehicle_types'=>'required|string',
              'cost'=>'required|numeric',
+             'shipping_type'=>'required|string',
+             'count'=>'required|integer',
 		];
 	}
 
@@ -56,6 +60,8 @@ class ShippingRequest extends FormRequest {
              'country'=>trans('admin.country'),
              'vehicle_types'=>trans('admin.vehicle_types'),
              'cost'=>trans('admin.cost'),
+             'shipping_type'=>trans('admin.shipping_type'),
+             'count'=>trans('admin.count'),
 		];
 	}
 

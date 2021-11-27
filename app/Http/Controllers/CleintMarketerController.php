@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\DataTables\CleintMarketerDataTable;
 use App\Http\Controllers\Validations\CleintControllerRequest;
 use App\Models\Cleint;
+use App\Models\Marketer;
+use App\Notifications\NotifyNewClient;
+use Illuminate\Notifications\Notification;
 
 // Auto Controller Maker By Baboon Script
 // Baboon Maker has been Created And Developed By  [it v 1.6.32]
@@ -64,11 +67,14 @@ class CleintMarketerController extends Controller
         $data['photo_profile'] = "";
         $data['marketer_id'] = marketer()->id();
         $data['password'] = bcrypt(request('password'));
+        $data['admin_id'] = 1;
+         $marketer = Marketer::find($data['marketer_id']);
         $cleint = Cleint::create($data);
         if (request()->hasFile('photo_profile')) {
             $cleint->photo_profile = it()->upload('photo_profile', 'marketer/cleint/' . $cleint->id);
             $cleint->save();
         }
+        $marketer->notify(new NotifyNewClient($cleint));
         $redirect = isset($request["add_back"]) ? "/create" : "";
         return redirectWithSuccess(url('marketer/cleint' . $redirect), trans('admin.added'));
     }

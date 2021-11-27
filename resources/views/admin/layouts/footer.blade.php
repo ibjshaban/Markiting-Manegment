@@ -119,7 +119,8 @@
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{ url('assets') }}/js/pages/dashboard.js"></script>
 @endif
-
+<script src="{{ url('assets') }}/country_region/assets/js/geodatasource-cr.min.js"></script>
+<script type="text/javascript" src="{{ url('assets') }}/country_region/assets/js/Gettext.js"></script>
 <script src="{{url('assets/plugins/dropzone/min/dropzone.min.js')}}" type="text/javascript"></script>
 <script type="text/javascript">
     $(document).ready(function () {
@@ -185,5 +186,6 @@
 </script>
 
 @stack('js')
+
 </body>
 </html>

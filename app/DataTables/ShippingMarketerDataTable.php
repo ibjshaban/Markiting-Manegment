@@ -186,6 +186,16 @@ class ShippingMarketerDataTable extends DataTable
                  'data'=>'cost',
                  'title'=>trans('admin.cost'),
 		    ],
+		    [
+                'name' => 'shipping_type',
+                'data' => 'shipping_type',
+                'title' => trans('admin.shipping_type'),
+            ],
+            [
+                'name' => 'count',
+                'data' => 'count',
+                'title' => trans('admin.count'),
+            ],
             [
 	                'name' => 'created_at',
 	                'data' => 'created_at',

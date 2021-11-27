@@ -100,6 +100,22 @@
 				<b>{{trans('admin.mobile')}} :</b>
 				{!! $cleint->mobile !!}
 			</div>
+			 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<b>{{trans('admin.transport_type')}} :</b>
+				{!! $cleint->transport_type !!}
+			</div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<b>{{trans('admin.to_country')}} :</b>
+				{!! $cleint->to_country !!}
+			</div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<b>{{trans('admin.to_city')}} :</b>
+				{!! $cleint->to_city !!}
+			</div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<b>{{trans('admin.note')}} :</b>
+				{!! $cleint->note !!}
+			</div>
 
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 				<b>{{trans('admin.photo_profile')}} :</b>

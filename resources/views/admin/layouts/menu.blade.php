@@ -220,6 +220,17 @@ with font-awesome or any other icon font library -->
             </li>
         @endif
         <!--advertisement_end_route-->
+        
+         <!--contact_start_route-->
+        <li class="nav-item ">
+            <a href="{{ url('marketer/contact') }}" class="nav-link">
+                <i class="nav-icon fas fa-envelope"></i>
+                <p>
+                    {{trans('admin.contact')}}
+                </p>
+            </a>
+        </li>
+    <!--contact_end_route-->
 
 
     @endif

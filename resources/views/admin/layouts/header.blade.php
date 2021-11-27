@@ -29,6 +29,32 @@
     <link href="{{ url("assets/plugins/datatables-bs4/css/dataTables.bootstrap4.css") }}" rel="stylesheet" type="text/css" />
     <link href="{{ url("assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css") }}" rel="stylesheet" type="text/css" />
     <link href="{{ url("assets/plugins/datatables-colreorder/css/colreorder.bootstrap4.min.css") }}" rel="stylesheet" type="text/css" />
+
+
+  <link rel="stylesheet" href="{{ url('assets') }}/country_region/assets/css/geodatasource-countryflag.css">
+
+        <!-- link to all languages po files -->
+        <link rel="gettext" type="application/x-po" href="{{ url('assets') }}/country_region/languages/ar/LC_MESSAGES/ar.po" />
+        <link rel="gettext" type="application/x-po" href="{{ url('assets') }}/country_region/languages/cs/LC_MESSAGES/cs.po" />
+        <link rel="gettext" type="application/x-po" href="{{ url('assets') }}/country_region/languages/da/LC_MESSAGES/da.po" />
+        <link rel="gettext" type="application/x-po" href="{{ url('assets') }}/country_region/languages/de/LC_MESSAGES/de.po" />
+        <link rel="gettext" type="application/x-po" href="{{ url('assets') }}/country_region/languages/en/LC_MESSAGES/en.po" />
+        <link rel="gettext" type="application/x-po" href="{{ url('assets') }}/country_region/languages/es/LC_MESSAGES/es.po" />
+        <link rel="gettext" type="application/x-po" href="{{ url('assets') }}/country_region/languages/fr/LC_MESSAGES/fr.po" />
+        <link rel="gettext" type="application/x-po" href="{{ url('assets') }}/country_region/languages/it/LC_MESSAGES/it.po" />
+        <link rel="gettext" type="application/x-po" href="{{ url('assets') }}/country_region/languages/ja/LC_MESSAGES/ja.po" />
+        <link rel="gettext" type="application/x-po" href="{{ url('assets') }}/country_region/languages/ko/LC_MESSAGES/ko.po" />
+        <link rel="gettext" type="application/x-po" href="{{ url('assets') }}/country_region/languages/ms/LC_MESSAGES/ms.po" />
+        <link rel="gettext" type="application/x-po" href="{{ url('assets') }}/country_region/languages/nl/LC_MESSAGES/nl.po" />
+        <link rel="gettext" type="application/x-po" href="{{ url('assets') }}/country_region/languages/pt/LC_MESSAGES/pt.po" />
+        <link rel="gettext" type="application/x-po" href="{{ url('assets') }}/country_region/languages/ru/LC_MESSAGES/ru.po" />
+        <link rel="gettext" type="application/x-po" href="{{ url('assets') }}/country_region/languages/sv/LC_MESSAGES/sv.po" />
+        <link rel="gettext" type="application/x-po" href="{{ url('assets') }}/country_region/languages/vi/LC_MESSAGES/vi.po" />
+        <link rel="gettext" type="application/x-po" href="{{ url('assets') }}/country_region/languages/zh-cn/LC_MESSAGES/zh-cn.po" />
+        <link rel="gettext" type="application/x-po" href="{{ url('assets') }}/country_region/languages/zh-tw/LC_MESSAGES/zh-tw.po" />
+
+
+
     @if(app("l") == 'ar')
     <link href="{{ url("assets/plugins/datatables-bs4/css/datatables.bootstrap-rtl.css") }}" rel="stylesheet" type="text/css" />
     @endif
@@ -100,6 +126,7 @@
 <script src="{{url('assets/js/jquery.min.js')}}" type="text/javascript"></script>
 <link rel="stylesheet" type="text/css" href="{{url('assets/plugins/dropzone/min/dropzone.min.css')}}">
 <link rel="stylesheet" type="text/css" href="{{url('assets/plugins/dropzone/min/basic.css')}}">
+      <script src="{{ mix('/js/app.js') }}"></script>
   </head>
  <body class="hold-transition sidebar-mini layout-navbar-fixed layout-fixed">
     <div class="wrapper">

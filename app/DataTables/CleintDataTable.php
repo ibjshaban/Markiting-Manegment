@@ -101,7 +101,7 @@ class CleintDataTable extends DataTable
 
 
 
-            " . filterElement('1,2', 'input') . "
+            " . filterElement('1,2,3,4,5,6,7,8,9,10', 'input') . "
 
 
 
@@ -189,6 +189,26 @@ class CleintDataTable extends DataTable
                 'name' => 'mobile',
                 'data' => 'mobile',
                 'title' => trans('admin.mobile'),
+            ],
+            [
+                'name' => 'transport_type',
+                'data' => 'transport_type',
+                'title' => trans('admin.transport_type'),
+            ],
+            [
+                'name' => 'to_country',
+                'data' => 'to_country',
+                'title' => trans('admin.to_country'),
+            ],
+            [
+                'name' => 'to_city',
+                'data' => 'to_city',
+                'title' => trans('admin.to_city'),
+            ],
+            [
+                'name' => 'note',
+                'data' => 'note',
+                'title' => trans('admin.note'),
             ],
             [
                 'name' => 'address',

@@ -62,25 +62,34 @@
 			</div>
 			<div class="clearfix"></div>
 			<hr />
-			@if(!empty($shipping->admin_id()->first()))
+			@if(!empty($shipping->admin_id()->first()))
 			<div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
 				<b>{{trans('admin.admin_id')}} :</b>
 				{{ $shipping->admin_id()->first()->name }}
 			</div>
 			@endif
-			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<b>{{trans('admin.shipping_type')}} :</b>
+				{!! $shipping->shipping_type !!}
+			</div>
+
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<b>{{trans('admin.count')}} :</b>
+				{!! $shipping->count !!}
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 				<b>{{trans('admin.cost')}} :</b>
 				{!! $shipping->cost !!}
 			</div>
-			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 				<b>{{trans('admin.country')}} :</b>
 				{{ trans("admin.".$shipping->country) }}
 			</div>
-			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 				<b>{{trans('admin.vehicle_types')}} :</b>
 				{{ trans("admin.".$shipping->vehicle_types) }}
 			</div>
-			<!-- /.row -->
+			<!-- /.row -->
 		</div>
 	</div>
 	<!-- /.card-body -->

@@ -68,6 +68,30 @@
                         {!! Form::number('mobile',old('mobile'),['class'=>'form-control','placeholder'=>trans('admin.mobile')]) !!}
                     </div>
                 </div>
+                  <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                    <div class="form-group">
+                        {!! Form::label('transport_type',trans('admin.transport_type'),['class'=>' control-label']) !!}
+                        {!! Form::text('transport_type',old('transport_type'),['class'=>'form-control','placeholder'=>trans('admin.transport_type')]) !!}
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                    <div class="form-group">
+                        {!! Form::label('to_country',trans('admin.to_country'),['class'=>' control-label']) !!}
+                        <select class="form-control gds-cr select2" name="to_country" country-data-region-id="gds-cr-one" data-language="{{ app('l') }}"></select>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                    <div class="form-group">
+                        {!! Form::label('to_city',trans('admin.to_city'),['class'=>' control-label']) !!}
+                        <select class="form-control select2" name="to_city" id="gds-cr-one"></select>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                    <div class="form-group">
+                        {!! Form::label('note',trans('admin.note'),['class'=>' control-label']) !!}
+                        {!! Form::textarea('note',old('note'),['class'=>'form-control','placeholder'=>trans('admin.note')]) !!}
+                    </div>
+                </div>
                 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 photo_profile">
                     <div class="form-group">
                         <label for="'photo_profile'">{{ trans('admin.photo_profile') }}</label>

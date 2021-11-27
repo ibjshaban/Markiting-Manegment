@@ -7,18 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 // Copyright Reserved  [it v 1.6.32]
 class Shipping extends Model {
 
-protected $table    = 'shippings';
-protected $fillable = [
-		'id',
-		'admin_id',
-        'country',
-
-        'vehicle_types',
-
-        'cost',
-		'created_at',
-		'updated_at',
-	];
+  protected $table    = 'shippings';
+  protected $fillable = [
+    'id',
+    'admin_id',
+    'country',
+    'vehicle_types',
+    'cost',
+    'shipping_type',
+    'count',
+    'created_at',
+    'updated_at',
+  ];
 
 	/**
 	 * admin id relation method to get how add this data
@@ -26,10 +26,10 @@ protected $fillable = [
 	 * @param void
 	 * @return object data
 	 */
-   public function admin_id() {
-	   return $this->hasOne(\App\Models\Admin::class, 'id', 'admin_id');
-   }
-	
+ public function admin_id() {
+  return $this->hasOne(\App\Models\Admin::class, 'id', 'admin_id');
+}
+
 
  	/**
     * Static Boot method to delete or update or sort Data
@@ -37,10 +37,10 @@ protected $fillable = [
     * @return void
     */
    protected static function boot() {
-      parent::boot();
+    parent::boot();
       // if you disable constraints should by run this static method to Delete children data
-         static::deleting(function($shipping) {
-         });
-   }
-		
+    static::deleting(function($shipping) {
+    });
+  }
+  
 }

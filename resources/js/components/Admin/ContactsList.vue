@@ -62,6 +62,8 @@
             padding-left: 0;
             padding-inline-start: 0px;
             border: 2px solid #6f42c1;
+            border-radius: 2%;
+
             li:hover{
                 background: #dfdfdf;
             }
@@ -73,6 +75,7 @@
                 position: relative;
                 cursor: pointer;
                 border-bottom: 1px solid #6f42c1;
+                border-radius: 2%;
                 &.selected{
                     background: #a285d5;
                 }

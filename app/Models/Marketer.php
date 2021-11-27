@@ -2,11 +2,13 @@
 namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 // Auto Models By Baboon Script
 // Baboon Maker has been Created And Developed By  [it v 1.6.32]
 // Copyright Reserved  [it v 1.6.32]
 class Marketer extends Authenticatable {
+    use Notifiable;
 
 protected $table    = 'marketers';
 protected $fillable = [
@@ -36,6 +38,10 @@ protected $fillable = [
    public function admin_id() {
 	   return $this->hasOne(\App\Models\Admin::class, 'id', 'admin_id');
    }
+
+    public function clients() {
+        return $this->hasMany(\App\Models\Cleint::class);
+    }
 
 
  	/**

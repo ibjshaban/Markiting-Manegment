@@ -125,7 +125,7 @@ class CleintController extends Controller
         }
         $data['password'] = bcrypt(request('password'));
 
-        if (auth()->guard('marketer')->check()) {
+        if (auth()->guard('admin')->check()) {
             if ($data['status'] !== $cleint->status) {
                 $marketer_id = $cleint->marketer_id()->first()->id;
                 if ($data['status'] == 'active')

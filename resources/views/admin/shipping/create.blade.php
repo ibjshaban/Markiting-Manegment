@@ -57,6 +57,18 @@
                         {!! Form::number('cost',old('cost'),['class'=>'form-control','placeholder'=>trans('admin.cost')]) !!}
                     </div>
                 </div>
+                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                    <div class="form-group">
+                        {!! Form::label('shipping_type',trans('admin.shipping_type'),['class'=>' control-label']) !!}
+                        {!! Form::text('shipping_type',old('shipping_type'),['class'=>'form-control','placeholder'=>trans('admin.shipping_type')]) !!}
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                    <div class="form-group">
+                        {!! Form::label('count',trans('admin.count'),['class'=>' control-label']) !!}
+                        {!! Form::number('count',old('count'),['class'=>'form-control','placeholder'=>trans('admin.count')]) !!}
+                    </div>
+                </div>
 
             </div>
             <!-- /.row -->

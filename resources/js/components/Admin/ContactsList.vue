@@ -1,13 +1,13 @@
 <template>
-    <div class="contact-list">
+    <div class="contact-list" style="height: 500px;">
         <ul>
             <li v-for="contact in sortedContacts" :key="contact.id" @click="selectContact(contact)"
                 :class="{'selected':contact == selected}">
                 <div class="avatar">
-                    <img :src="contact.photo_profile" :alt="contact.name">
+                    <img :src="'/storage/'+contact.photo_profile" :alt="contact.name">
                 </div>
                 <div class="contact">
-                    <p class="name">{{contact.name}}</p>
+                    <p class="name">{{contact.name_ar}}</p>
                     <p class="email">{{contact.email}}</p>
                 </div>
                 <span class="unread" v-if="contact.unread">{{contact.unread}}</span>
@@ -60,6 +60,11 @@
         ul {
             list-style-type: none;
             padding-left: 0;
+            padding-inline-start: 0px;
+            border: 2px solid #6f42c1;
+            li:hover{
+                background: #dfdfdf;
+            }
 
             li {
                 display: flex;
@@ -67,9 +72,9 @@
                 height: 80px;
                 position: relative;
                 cursor: pointer;
-                border-bottom: 1px solid #aaaaaa;
+                border-bottom: 1px solid #6f42c1;
                 &.selected{
-                    background: #dfdfdf;
+                    background: #a285d5;
                 }
                 span.unread{
                     color: white;

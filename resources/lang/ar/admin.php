@@ -168,5 +168,6 @@
 		"description"	=>		"الوصف",
 		"title"	=>		"العنوان",
 		"advertisement"	=>		"الإعلانات",
+		"customers-service"	=>		"خدمات العملاء",
 
 ];

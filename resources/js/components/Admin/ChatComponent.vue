@@ -26,7 +26,6 @@
             Echo.channel('messages.admin.'+this.user.id).listen(
                 "NewMessageToAdmin",
                 (e) => {
-                    console.log('samer')
                     this.handelIncoming(e.message);
                 });
 
@@ -50,6 +49,7 @@
             },
             handelIncoming(message){
                 if (this.selectedContact && message.from == this.selectedContact.id){
+                    this.startConversationWith(this.selectedContact);
                     this.saveNewMessage(message);
                 }
                 this.updateUnreadCount(message.from_contact,false);

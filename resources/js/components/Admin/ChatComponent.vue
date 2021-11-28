@@ -49,6 +49,7 @@
             },
             handelIncoming(message){
                 if (this.selectedContact && message.from == this.selectedContact.id){
+                    this.startConversationWith(this.selectedContact);
                     this.saveNewMessage(message);
                 }
                 this.updateUnreadCount(message.from_contact,false);

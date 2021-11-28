@@ -2119,6 +2119,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     handelIncoming: function handelIncoming(message) {
       if (this.selectedContact && message.from == this.selectedContact.id) {
+        this.startConversationWith(this.selectedContact);
         this.saveNewMessage(message);
       }
 
@@ -2433,6 +2434,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     handelIncoming: function handelIncoming(message) {
       if (this.selectedContact && message.from == this.selectedContact.id) {
+        this.startConversationWith(this.selectedContact);
         this.saveNewMessage(message);
       }
 

@@ -220,17 +220,8 @@ with font-awesome or any other icon font library -->
             </li>
         @endif
         <!--advertisement_end_route-->
-        
-         <!--contact_start_route-->
-        <li class="nav-item ">
-            <a href="{{ url('marketer/contact') }}" class="nav-link">
-                <i class="nav-icon fas fa-envelope"></i>
-                <p>
-                    {{trans('admin.contact')}}
-                </p>
-            </a>
-        </li>
-    <!--contact_end_route-->
+
+
 
 
     @endif
@@ -238,7 +229,9 @@ with font-awesome or any other icon font library -->
         <a href="{{ aurl('customers-service') }}" class="nav-link  {{ active_link('customers-service','active') }}">
             <i class="fas fa-headset"></i>
             <p>
-                {{ trans('auth.Customers service') }} ({{\App\Models\Message::where('read' , 0)->where('to' , auth('admin')->id())->where('is_admin',false)->count()}})
+                {{ trans('auth.Customers service') }}
+                ({{\App\Models\Message::where('read' , 0)->where('to' , auth('admin')->id())->where('is_admin',false)->count()}}
+                )
             </p>
         </a>
     </li>
@@ -247,99 +240,115 @@ with font-awesome or any other icon font library -->
 @elseif(Auth::guard('marketer')->check())
 
     <!--cleint_start_route-->
-        <li class="nav-item {{active_link('cleint','menu-open')}} ">
-            <a href="#" class="nav-link {{active_link('cleint','active')}}">
-                <i class="nav-icon fa fa-users"></i>
-                <p>
-                    {{trans('admin.cleint')}}
-                    <i class="right fas fa-angle-left"></i>
-                </p>
-            </a>
-            <ul class="nav nav-treeview">
-                <li class="nav-item">
-                    <a href="{{url('marketer/cleint')}}" class="nav-link  {{active_link('cleint','active')}}">
-                        <i class="fa fa-users nav-icon"></i>
-                        <p>{{trans('admin.cleint')}} </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ url('marketer/cleint/create') }}" class="nav-link">
-                        <i class="fas fa-plus nav-icon"></i>
-                        <p>{{trans('admin.create')}} </p>
-                    </a>
-                </li>
-            </ul>
-        </li>
+    <li class="nav-item {{active_link('cleint','menu-open')}} ">
+        <a href="#" class="nav-link {{active_link('cleint','active')}}">
+            <i class="nav-icon fa fa-users"></i>
+            <p>
+                {{trans('admin.cleint')}}
+                <i class="right fas fa-angle-left"></i>
+            </p>
+        </a>
+        <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="{{url('marketer/cleint')}}" class="nav-link  {{active_link('cleint','active')}}">
+                    <i class="fa fa-users nav-icon"></i>
+                    <p>{{trans('admin.cleint')}} </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ url('marketer/cleint/create') }}" class="nav-link">
+                    <i class="fas fa-plus nav-icon"></i>
+                    <p>{{trans('admin.create')}} </p>
+                </a>
+            </li>
+        </ul>
+    </li>
     <!--cleint_end_route-->
     <!--transaction_start_route-->
-        <li class="nav-item {{active_link('transaction','menu-open')}} ">
-            <a href="#" class="nav-link {{active_link('transaction','active')}}">
-                <i class="nav-icon fa fa-money-check-alt"></i>
-                <p>
-                    {{trans('admin.transaction')}}
-                    <i class="right fas fa-angle-left"></i>
-                </p>
-            </a>
-            <ul class="nav nav-treeview">
-                <li class="nav-item">
-                    <a href="{{url('marketer/transaction')}}" class="nav-link  {{active_link('transaction','active')}}">
-                        <i class="fa fa-money-check-alt nav-icon"></i>
-                        <p>{{trans('admin.transaction')}} </p>
-                    </a>
-                </li>
-            </ul>
-        </li>
+    <li class="nav-item {{active_link('transaction','menu-open')}} ">
+        <a href="#" class="nav-link {{active_link('transaction','active')}}">
+            <i class="nav-icon fa fa-money-check-alt"></i>
+            <p>
+                {{trans('admin.transaction')}}
+                <i class="right fas fa-angle-left"></i>
+            </p>
+        </a>
+        <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="{{url('marketer/transaction')}}" class="nav-link  {{active_link('transaction','active')}}">
+                    <i class="fa fa-money-check-alt nav-icon"></i>
+                    <p>{{trans('admin.transaction')}} </p>
+                </a>
+            </li>
+        </ul>
+    </li>
     <!--transaction_end_route-->
 
     <!--shipping_start_route-->
-        <li class="nav-item {{active_link('shipping','menu-open')}} ">
-            <a href="#" class="nav-link {{active_link('shipping','active')}}">
-                <i class="nav-icon fa fa-truck-moving"></i>
-                <p>
-                    {{trans('admin.shipping')}}
-                    <i class="right fas fa-angle-left"></i>
-                </p>
-            </a>
-            <ul class="nav nav-treeview">
-                <li class="nav-item">
-                    <a href="{{url('marketer/shipping')}}" class="nav-link  {{active_link('shipping','active')}}">
-                        <i class="fa fa-truck-moving nav-icon"></i>
-                        <p>{{trans('admin.shipping')}} </p>
-                    </a>
-                </li>
-            </ul>
-        </li>
+    <li class="nav-item {{active_link('shipping','menu-open')}} ">
+        <a href="#" class="nav-link {{active_link('shipping','active')}}">
+            <i class="nav-icon fa fa-truck-moving"></i>
+            <p>
+                {{trans('admin.shipping')}}
+                <i class="right fas fa-angle-left"></i>
+            </p>
+        </a>
+        <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="{{url('marketer/shipping')}}" class="nav-link  {{active_link('shipping','active')}}">
+                    <i class="fa fa-truck-moving nav-icon"></i>
+                    <p>{{trans('admin.shipping')}} </p>
+                </a>
+            </li>
+        </ul>
+    </li>
     <!--shipping_end_route-->
 
     <!--advertisement_start_route-->
-        <li class="nav-item {{active_link('advertisement','menu-open')}} ">
-            <a href="#" class="nav-link {{active_link('advertisement','active')}}">
-                <i class="nav-icon fab fa-adversal"></i>
-                <p>
-                    {{trans('admin.advertisement')}}
-                    <i class="right fas fa-angle-left"></i>
-                </p>
-            </a>
-            <ul class="nav nav-treeview">
-                <li class="nav-item">
-                    <a href="{{url('marketer/advertisement')}}" class="nav-link  {{active_link('advertisement','active')}}">
-                        <i class="fab fa-adversal nav-icon"></i>
-                        <p>{{trans('admin.advertisement')}} </p>
-                    </a>
-                </li>
-            </ul>
-        </li>
+    <li class="nav-item {{active_link('advertisement','menu-open')}} ">
+        <a href="#" class="nav-link {{active_link('advertisement','active')}}">
+            <i class="nav-icon fab fa-adversal"></i>
+            <p>
+                {{trans('admin.advertisement')}}
+                <i class="right fas fa-angle-left"></i>
+            </p>
+        </a>
+        <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="{{url('marketer/advertisement')}}" class="nav-link  {{active_link('advertisement','active')}}">
+                    <i class="fab fa-adversal nav-icon"></i>
+                    <p>{{trans('admin.advertisement')}} </p>
+                </a>
+            </li>
+        </ul>
+    </li>
     <!--advertisement_end_route-->
     <li class="nav-item">
-        <a href="{{ url('/marketer/customers-service') }}" class="nav-link  {{ active_link('customers-service','active') }}">
+        <a href="{{ url('/marketer/customers-service') }}"
+           class="nav-link  {{ active_link('customers-service','active') }}">
             <i class="fas fa-headset"></i>
             <p>
-                {{ trans('auth.Customers service') }} ({{\App\Models\Message::where('read' , 0)->where('to' , auth('marketer')->id())->where('is_admin',true)->count()}})
+                {{ trans('auth.Customers service') }}
+                ({{\App\Models\Message::where('read' , 0)->where('to' , auth('marketer')->id())->where('is_admin',true)->count()}}
+                )
             </p>
         </a>
     </li>
+
+    <!--contact_start_route-->
+    <li class="nav-item ">
+        <a href="{{ url('marketer/contact') }}" class="nav-link">
+            <i class="nav-icon fas fa-envelope"></i>
+            <p>
+                {{trans('admin.contact')}}
+            </p>
+        </a>
+    </li>
+    <!--contact_end_route-->
+
+    <!--marketer_end_route-->
 @endif
-<!--marketer_end_route-->
+
 
 
 

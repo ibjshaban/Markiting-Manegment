@@ -51,11 +51,11 @@ export default {
             var data = {
                 id: notification.id
             };
-            axios.post('/admin/notification/read/', data).then(response => {
-                window.location.href = "cleint/" + notification.data.clients.id;
+            axios.post('/admin/notification/read', data).then(response => {
+                window.location.href = "/admin/cleint/" + notification.data.clients.id;
             });
-            axios.post('/notification/read/', data).then(response => {
-                window.location.href = "admin/cleint/" + notification.data.clients.id;
+            axios.post('/notification/read', data).then(response => {
+                window.location.href = "/cleint/" + notification.data.clients.id;
             });
         }
     }

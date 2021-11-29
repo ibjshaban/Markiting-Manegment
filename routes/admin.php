@@ -45,7 +45,7 @@ Route::group(['prefix' => app('admin'), 'middleware' => 'Lang'], function () {
 
 
         Route::resource('settings', 'Admin\Settings');
-        Route::view('customers-service', 'admin\chat');
+        Route::view('customers-service', 'admin.chat');
         Route::resource('admingroups', 'Admin\AdminGroups');
         Route::post('admingroups/multi_delete', 'Admin\AdminGroups@multi_delete');
         Route::resource('admins', 'Admin\Admins');
@@ -71,16 +71,16 @@ Route::group(['prefix' => app('admin'), 'middleware' => 'Lang'], function () {
     });
 
     // Notifications
-    Route::post('/notification/get', 'Admin\NotificationController@get');
+    Route::get('/notification/get', 'Admin\NotificationController@get');
     Route::post('/notification/read/', 'Admin\NotificationController@read');
 
     // Notifications
-    Route::post('cleint/notification/get', 'Admin\NotificationController@get');
-    Route::post('marketer/notification/get', 'Admin\NotificationController@get');
-    Route::post('advertisement/notification/get', 'Admin\NotificationController@get');
-    Route::post('advertisement/notification/get', 'Admin\NotificationController@get');
-    Route::post('shipping/notification/get', 'Admin\NotificationController@get');
-    Route::post('transaction/notification/get', 'Admin\NotificationController@get');
+    Route::get('cleint/notification/get', 'Admin\NotificationController@get');
+    Route::get('marketer/notification/get', 'Admin\NotificationController@get');
+    Route::get('advertisement/notification/get', 'Admin\NotificationController@get');
+    Route::get('advertisement/notification/get', 'Admin\NotificationController@get');
+    Route::get('shipping/notification/get', 'Admin\NotificationController@get');
+    Route::get('transaction/notification/get', 'Admin\NotificationController@get');
 
 
 });

@@ -1,8 +1,8 @@
 <template>
     <div class="feed" id="feed">
         <ul v-if="contact">
-            <li v-for="message in messages" :class="`message${message.to == contact.id?' sent':' received'}`" :key="message.id">
-                <h6 v-if="message.to == contact.id" style="font-size: 8px">You</h6>
+            <li v-for="message in messages" :class="`message${message.to == contact.id && message.is_admin?' sent':' received'}`" :key="message.id">
+                <h6 v-if="message.to == contact.id && message.is_admin" style="font-size: 8px">You</h6>
                 <div class="text">
                     {{message.text}}
                 </div>

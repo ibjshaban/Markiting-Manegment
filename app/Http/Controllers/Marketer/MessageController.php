@@ -25,12 +25,12 @@ class MessageController extends Controller
      */
     public function index()
     {
-        $contact= Admin::first();
+        $contact= Admin::select('id','photo_profile')->first();
+        $contact->name = 'Admin';
         $unread_messages=Message::where('read' , 0)->where('to' , auth('marketer')->id())
             ->where('is_admin',true)->where('from',$contact->id)->count();
-
         $contact->unread= $unread_messages ;
-        return response()->json([$contact,$unread_messages]);
+        return response()->json([$contact]);
     }
     public function getMessagesFor($id){
 

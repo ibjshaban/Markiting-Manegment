@@ -27,15 +27,17 @@ class MarketerRequest extends FormRequest
     protected function onUpdate()
     {
         return [
-            'name_ar' => 'required|string',
-            'name_en' => 'string',
+            'first_name_ar' => 'required|string',
+            'last_name_ar' => 'required|string',
+            'first_name_en' => 'string|nullable',
+            'last_name_en' => 'string|nullable',
             'email' => 'required|string|email',
             'password' => 'required|string',
             'mobile' => 'required|numeric',
-            'balance' => 'numeric',
+            'balance' => 'numeric|nullable',
             'address_ar' => 'required|string',
-            'address_en' => 'string',
-            'photo_profile' => 'image',
+            'address_en' => 'string|nullable',
+            'photo_profile' => 'image|nullable',
             'amount_due' => 'numeric',
             'amount_paid' => 'numeric',
             'remember_token' => '',
@@ -51,15 +53,17 @@ class MarketerRequest extends FormRequest
     protected function onCreate()
     {
         return [
-            'name_ar' => 'required|string',
-            'name_en' => 'string',
+            'first_name_ar' => 'required|string',
+            'last_name_ar' => 'required|string',
+            'first_name_en' => 'string|nullable',
+            'last_name_en' => 'string|nullable',
             'email' => 'required|string|email',
             'password' => 'required|string',
             'mobile' => 'required|numeric',
             'balance' => 'numeric',
             'address_ar' => 'required|string',
             'address_en' => 'required|string',
-            'photo_profile' => 'image',
+            'photo_profile' => 'image|nullable',
             'amount_due' => 'required|numeric',
             'amount_paid' => 'required|numeric',
             'remember_token' => '',
@@ -75,8 +79,10 @@ class MarketerRequest extends FormRequest
     public function attributes()
     {
         return [
-            'name_ar' => trans('admin.name_ar'),
-            'name_en' => trans('admin.name_en'),
+            'first_name_ar' => trans('admin.first_name_ar'),
+            'last_name_ar' => trans('admin.last_name_ar'),
+            'first_name_en' => trans('admin.first_name_en'),
+            'last_name_en' => trans('admin.last_name_en'),
             'email' => trans('admin.email'),
             'password' => trans('admin.password'),
             'mobile' => trans('admin.mobile'),

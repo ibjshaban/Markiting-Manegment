@@ -98,7 +98,7 @@ class AdvertisementMarketerDataTable extends DataTable
 
 
 
-            " . filterElement('1,2,3', 'input') . "
+            " . filterElement('1,2', 'input') . "
 
 
 

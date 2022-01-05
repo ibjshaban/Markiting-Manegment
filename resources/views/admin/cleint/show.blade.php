@@ -63,16 +63,13 @@
 			<div class="clearfix"></div>
 			<hr />
 
-			@if(!empty($cleint->admin_id()->first()))
-			<div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
-				<b>{{trans('admin.admin_id')}} :</b>
-				{{ $cleint->admin_id()->first()->name }}
-			</div>
-			@endif
+
             @if(!empty($cleint->marketer_id()->first()))
 			<div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
-				<b>{{trans('admin.marketer_id')}} :</b>
-				{{ $cleint->marketer_id()->first()->{'name_'.app('l')} }}
+                <b>{{trans('admin.marketer_id')}} :</b>
+                <a href="{{ aurl('marketer').'/'.$cleint->marketer_id()->first()->id}}">
+				{{ $cleint->marketer_id()->first()->{'first_name_'.app('l')} }}
+                </a>
 			</div>
 			@endif
 

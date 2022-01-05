@@ -62,25 +62,30 @@
 			</div>
 			<div class="clearfix"></div>
 			<hr />
-			@if(!empty($advertisement->admin_id()->first()))
+
+			@if(!empty($advertisement->admin_id()->first()))
 			<div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
 				<b>{{trans('admin.admin_id')}} :</b>
 				{{ $advertisement->admin_id()->first()->name }}
 			</div>
 			@endif
-			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 				<b>{{trans('admin.title')}} :</b>
 				{!! $advertisement->title !!}
 			</div>
-			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 				<b>{{trans('admin.description')}} :</b>
 				{!! $advertisement->description !!}
 			</div>
-			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 				<b>{{trans('admin.photos')}} :</b>
 				@include("admin.show_image",["image"=>$advertisement->photos])
 			</div>
-			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 				<div class="row">
 					<div class="col-md-8 col-lg-4 col-xs-12">
 					  <b>{{trans('admin.videos')}} :</b>
@@ -89,11 +94,12 @@
 						@include("admin.show_video",["video"=>$advertisement->videos])
 					</div>
 					<div class="col-md-2 col-lg-2 col-xs-12">
-						<a href="{{ it()->url($advertisement->videos) }}" target="_blank"><i class="fa fa-download fa-2x"></i></a>
+						<a href="{{ it()->url($advertisement->videos) }}" target="_blank" download><i class="fa fa-download fa-2x"></i></a>
 					</div>
 				</div>
 			</div>
-			<!-- /.row -->
+
+			<!-- /.row -->
 		</div>
 	</div>
 	<!-- /.card-body -->

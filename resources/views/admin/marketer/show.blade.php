@@ -71,13 +71,21 @@
 			@endif
 
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-				<b>{{trans('admin.name_ar')}} :</b>
-				{!! $marketer->name_ar !!}
+				<b>{{trans('admin.first_name_ar')}} :</b>
+				{!! $marketer->first_name_ar !!}
+			</div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<b>{{trans('admin.last_name_ar')}} :</b>
+				{!! $marketer->last_name_ar !!}
 			</div>
 
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-				<b>{{trans('admin.name_en')}} :</b>
-				{!! $marketer->name_en !!}
+				<b>{{trans('admin.first_name_en')}} :</b>
+				{!! $marketer->first_name_en !!}
+			</div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<b>{{trans('admin.last_name_en')}} :</b>
+				{!! $marketer->last_name_en !!}
 			</div>
 
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">

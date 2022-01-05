@@ -14,8 +14,10 @@ protected $table    = 'marketers';
 protected $fillable = [
 		'id',
 		'admin_id',
-        'name_ar',
-        'name_en',
+        'first_name_ar',
+        'last_name_ar',
+        'first_name_en',
+        'last_name_en',
         'email',
         'password',
         'mobile',

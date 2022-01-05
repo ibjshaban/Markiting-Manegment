@@ -171,14 +171,24 @@ class MarketerDataTable extends DataTable
                 'aaSorting' => 'none'
             ],
             [
-                'name' => 'name_ar',
-                'data' => 'name_ar',
-                'title' => trans('admin.name_ar'),
+                'name' => 'first_name_ar',
+                'data' => 'first_name_ar',
+                'title' => trans('admin.first_name_ar'),
             ],
             [
-                'name' => 'name_en',
-                'data' => 'name_en',
-                'title' => trans('admin.name_en'),
+                'name' => 'last_name_ar',
+                'data' => 'last_name_ar',
+                'title' => trans('admin.last_name_ar'),
+            ],
+            [
+                'name' => 'first_name_en',
+                'data' => 'first_name_en',
+                'title' => trans('admin.first_name_en'),
+            ],
+            [
+                'name' => 'last_name_en',
+                'data' => 'last_name_en',
+                'title' => trans('admin.last_name_en'),
             ],
             [
                 'name' => 'email',
@@ -219,7 +229,7 @@ class MarketerDataTable extends DataTable
                 'searchable' => false,
                 'orderable' => false,
             ],
-            [
+           /* [
                 'name' => 'updated_at',
                 'data' => 'updated_at',
                 'title' => trans('admin.updated_at'),
@@ -227,7 +237,7 @@ class MarketerDataTable extends DataTable
                 'printable' => false,
                 'searchable' => false,
                 'orderable' => false,
-            ],
+            ],*/
            /* [
                 'name' => 'active_checkbox',
                 'data' => 'active_checkbox',

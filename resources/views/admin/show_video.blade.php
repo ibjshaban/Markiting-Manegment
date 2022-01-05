@@ -5,7 +5,7 @@ $ext =  !is_null(explode('.',$video)) && count(explode('.',$video)) > 0?explode(
 @endphp
 @if(!empty($ext))
 <div style="margin-top: 5px;display: inline-block;">
-  <a href="#" data-toggle="modal" data-target="#video_{{ $random }}">
+  <a href="#" data-toggle="modal" data-target="#video_{{ $random }}" download>
     <i class="fa fa-photo-video fa-2x"></i>
   </a>
 </div>
@@ -27,7 +27,7 @@ vjs-theme-city
         <video class="vjs-theme-fantasy video-js hidden" id="video{{ $random }}" data-setup='{"controls": true, "autoplay": false, "preload": "auto"}' width="762px" height="450px" >
           <source src="{{ it()->url($video) }}" type="video/{{ $ext }}"  >
         </video>
-        <a href="{{ it()->url($video) }}" target="_blank" class="float-left"><i class="fa fa-download"></i></a>
+        <a href="{{ it()->url($video) }}" target="_blank" class="float-left" download><i class="fa fa-download"></i></a>
       </div>
 
     </div>

@@ -8,7 +8,7 @@ use Yajra\DataTables\Services\DataTable;
 // Copyright Reserved [it v 1.6.32]
 class TransactionDataTable extends DataTable
 {
-    	
+
 
      /**
      * dataTable to render Columns.
@@ -19,14 +19,16 @@ class TransactionDataTable extends DataTable
     {
         return datatables($query)
             ->addColumn('actions', 'admin.transaction.buttons.actions')
-            ->addColumn('photo', '{!! view("admin.show_image",["image"=>$photo])->render() !!}')
-   		->addColumn('created_at', '{{ date("Y-m-d H:i:s",strtotime($created_at)) }}')   		->addColumn('updated_at', '{{ date("Y-m-d H:i:s",strtotime($updated_at)) }}')            ->addColumn('checkbox', '<div  class="icheck-danger">
+
+            ->addColumn('photo', '{!! view("admin.show_image",["image"=>$photo])->render() !!}')
+
+   		->addColumn('created_at', '{{ date("Y-m-d H:i:s",strtotime($created_at)) }}')   		->addColumn('updated_at', '{{ date("Y-m-d H:i:s",strtotime($updated_at)) }}')            ->addColumn('checkbox', '<div  class="icheck-danger">
                   <input type="checkbox" class="selected_data" name="selected_data[]" id="selectdata{{ $id }}" value="{{ $id }}" >
                   <label for="selectdata{{ $id }}"></label>
                 </div>')
             ->rawColumns(['checkbox','actions',"photo",]);
     }
-  
+
 
      /**
      * Get the query object to be processed by dataTables.
@@ -38,7 +40,7 @@ class TransactionDataTable extends DataTable
         return Transaction::query()->with(['marketer_id',])->select("transactions.*");
 
     }
-    	
+
 
     	 /**
 	     * Optional method if you want to use html builder.
@@ -93,11 +95,11 @@ class TransactionDataTable extends DataTable
                 'initComplete' => "function () {
 
 
-            
+
             ". filterElement('1,2,3', 'input') . "
 
                         //marketer_idtransaction_number,amount,photo,marketer_id5
-            ". filterElement('5', 'select', \App\Models\Marketer::pluck("name_ar","name_ar")) . "
+            ". filterElement('5', 'select', \App\Models\Marketer::pluck("first_name_ar","first_name_ar")) . "
 
 
 	            }",
@@ -133,7 +135,7 @@ class TransactionDataTable extends DataTable
 
 	    }
 
-    	
+
 
     	/**
 	     * Get columns.
@@ -144,7 +146,7 @@ class TransactionDataTable extends DataTable
 	    protected function getColumns()
 	    {
 	        return [
-	       	
+
  [
                 'name' => 'checkbox',
                 'data' => 'checkbox',
@@ -225,5 +227,5 @@ class TransactionDataTable extends DataTable
 	    {
 	        return 'transaction_' . time();
 	    }
-    	
+
 }

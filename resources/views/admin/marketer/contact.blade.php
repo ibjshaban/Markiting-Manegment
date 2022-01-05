@@ -35,7 +35,7 @@
                 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
                     <div class="form-group">
                         {!! Form::label('name',trans('admin.name_ar'),['class'=>' control-label']) !!}
-                        {!! Form::text('name', marketer()->user()->name_ar,['class'=>'form-control','placeholder'=>trans('admin.name_ar')]) !!}
+                        {!! Form::text('name', marketer()->user()->first_name_ar,['class'=>'form-control','placeholder'=>trans('admin.name_ar')]) !!}
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">

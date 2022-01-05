@@ -31,11 +31,11 @@ class ContactController extends Controller
                 $message->to('from@example.com')
                     ->subject('Your Website Contact Form');
             });*/
-        $name = $request->get('name');
         $email = $request->get('email');
+        $name = $request->get('name');
         $messages = $request->get('message');
         //dd($messages);
-        Mail::to(env('MAIL_FROM_ADDRESS'))->send(new Contact($name, $email, $messages));
+        Mail::to('Irselha@gmail.com')->send(new Contact($email, $name, $messages));
 
         return redirectWithSuccess(url('marketer'), trans('admin.success_contact'));
     }

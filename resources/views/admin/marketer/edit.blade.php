@@ -67,14 +67,26 @@
 
                 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
                     <div class="form-group">
-                        {!! Form::label('name_ar',trans('admin.name_ar'),['class'=>'control-label']) !!}
-                        {!! Form::text('name_ar', $marketer->name_ar ,['class'=>'form-control','placeholder'=>trans('admin.name_ar')]) !!}
+                        {!! Form::label('first_name_ar',trans('admin.first_name_ar'),['class'=>'control-label']) !!}
+                        {!! Form::text('first_name_ar', $marketer->first_name_ar ,['class'=>'form-control','placeholder'=>trans('admin.first_name_ar')]) !!}
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
                     <div class="form-group">
-                        {!! Form::label('name_en',trans('admin.name_en'),['class'=>'control-label']) !!}
-                        {!! Form::text('name_en', $marketer->name_en ,['class'=>'form-control','placeholder'=>trans('admin.name_en')]) !!}
+                        {!! Form::label('last_name_ar',trans('admin.last_name_ar'),['class'=>'control-label']) !!}
+                        {!! Form::text('last_name_ar', $marketer->last_name_ar ,['class'=>'form-control','placeholder'=>trans('admin.last_name_ar')]) !!}
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                    <div class="form-group">
+                        {!! Form::label('first_name_en',trans('admin.first_name_en'),['class'=>'control-label']) !!}
+                        {!! Form::text('first_name_en', $marketer->first_name_en ,['class'=>'form-control','placeholder'=>trans('admin.first_name_en')]) !!}
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                    <div class="form-group">
+                        {!! Form::label('last_name_en',trans('admin.last_name_en'),['class'=>'control-label']) !!}
+                        {!! Form::text('last_name_en', $marketer->last_name_en ,['class'=>'form-control','placeholder'=>trans('admin.last_name_en')]) !!}
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">

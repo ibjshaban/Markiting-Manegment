@@ -24,7 +24,7 @@
                         @if(Auth::guard('admin')->check())
                             {!! Form::text('name',admin()->user()->name,['class'=>'form-control','placeholder'=>trans('admin.name')]) !!}
                         @elseif(Auth::guard('marketer')->check())
-                            {!! Form::text('name',marketer()->user()->{'name_'.app('l')}, ['class'=>'form-control','placeholder'=>trans('admin.name')]) !!}
+                            {!! Form::text('name',marketer()->user()->{'first_name_'.app('l')}, ['class'=>'form-control','placeholder'=>trans('admin.name')]) !!}
                         @endif
                     </div>
                 </div>
@@ -34,7 +34,7 @@
                         @if(Auth::guard('admin')->check())
                             {!! Form::text('balance',admin()->user()->balance,['class'=>'form-control','placeholder'=>trans('admin.balance')]) !!}
                         @elseif(Auth::guard('marketer')->check())
-                            {!! Form::text('balance',marketer()->user()->balance, ['class'=>'form-control','placeholder'=>trans('admin.balance')]) !!}
+                            {!! Form::label('balance',marketer()->user()->amount_due, ['class'=>'form-control','placeholder'=>trans('admin.balance')]) !!}
                         @endif
                     </div>
                 </div>

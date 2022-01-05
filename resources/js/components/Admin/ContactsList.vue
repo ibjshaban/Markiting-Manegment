@@ -7,7 +7,7 @@
                     <img :src="'/storage/'+contact.photo_profile" :alt="contact.name">
                 </div>
                 <div class="contact">
-                    <p class="name">{{contact.name_ar}}</p>
+                    <p class="name">{{contact.first_name_ar}}</p>
                     <p class="email">{{contact.email}}</p>
                 </div>
                 <span class="unread" v-if="contact.unread">{{contact.unread}}</span>

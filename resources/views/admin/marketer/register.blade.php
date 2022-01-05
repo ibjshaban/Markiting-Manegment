@@ -32,7 +32,7 @@
             <form action="{{ route('marketer_register') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="input-group mb-3">
-                    <input type="text" name="name_ar" class="form-control" placeholder="Full name" required>
+                    <input type="text" name="first_name_ar" class="form-control" placeholder="{{ trans('admin.first_name_'.app('l')) }}" required>
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-user"></span>
@@ -40,7 +40,15 @@
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="email" name="email" class="form-control" placeholder="Email" required>
+                    <input type="text" name="last_name_ar" class="form-control" placeholder="{{ trans('admin.last_name_'.app("l")) }}" required>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-user"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="email" name="email" class="form-control" placeholder="{{ trans('admin.email') }}" required>
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-envelope"></span>
@@ -48,7 +56,7 @@
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="password" name="password" class="form-control" placeholder="Password" required>
+                    <input type="password" name="password" class="form-control" placeholder="{{ trans('admin.password') }}" required>
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-lock"></span>
@@ -56,7 +64,7 @@
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="number" name="mobile" class="form-control" placeholder="mobile" required>
+                    <input type="number" name="mobile" class="form-control" placeholder="{{ trans('admin.mobile') }}" required>
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-mobile"></span>
@@ -64,7 +72,7 @@
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="text" name="address_ar" class="form-control" placeholder="address" required>
+                    <input type="text" name="address_ar" class="form-control" placeholder="{{ trans('admin.address') }}" required>
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-location-arrow"></span>

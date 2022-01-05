@@ -17,8 +17,10 @@ class CreateMarketersTable extends Migration
         Schema::create('marketers', function (Blueprint $table) {
             $table->bigIncrements('id');
 $table->foreignId("admin_id")->constrained("admins")->onUpdate("cascade")->onDelete("cascade");
-            $table->string('name_ar');
-            $table->string('name_en');
+            $table->string('first_name_ar');
+            $table->string('last_name_ar');
+            $table->string('first_name_en');
+            $table->string('last_name_en');
             $table->string('email');
             $table->string('password');
             $table->bigInteger('mobile');

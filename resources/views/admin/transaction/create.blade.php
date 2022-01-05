@@ -48,7 +48,7 @@
                 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
                     <div class="form-group">
                         {!! Form::label('marketer_id',trans('admin.marketer_id')) !!}
-                        {!! Form::select('marketer_id',App\Models\Marketer::pluck('name_ar','id'),old('marketer_id'),['class'=>'form-control select2','placeholder'=>trans('admin.choose')]) !!}
+                        {!! Form::select('marketer_id',App\Models\Marketer::pluck('first_name_ar','id'),old('marketer_id'),['class'=>'form-control select2','placeholder'=>trans('admin.choose')]) !!}
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 photo">

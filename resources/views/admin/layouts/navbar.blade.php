@@ -8,6 +8,7 @@
     setting()->theme_setting->main_header:'' }}
     ">
     <!-- Left navbar links -->
+
     <ul id="notification" class="navbar-nav">
         <li class="nav-item">
             <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
@@ -55,7 +56,7 @@
         <!-- Language Dropdown Menu -->
             <li class="nav-item  dropdown">
                 <a class="nav-link" data-toggle="dropdown" href="#">
-                    <i class="fas fa-language"></i>
+                    <i class="fas fa-language fa-2x"></i>
                 </a>
                 <div
                     class="dropdown-menu dropdown-menu-lg  languages {{ app('l') == 'ar'?'dropdown-menu-right':'dropdown-menu-left' }}">
@@ -69,7 +70,8 @@
     @endif
     <!-- Messages Dropdown Menu -->
         <li class="nav-item dropdown">
-            <a class="nav-link" href="{{auth('admin')->check()?  aurl('customers-service') :  url('/marketer/customers-service')}}">
+            <a class="nav-link"
+               href="{{auth('admin')->check()?  aurl('customers-service') :  url('/marketer/customers-service')}}">
                 <i class="far fa-comments"></i>
                 <span class="badge badge-danger navbar-badge">
                     @if(auth('admin')->check())
@@ -81,7 +83,9 @@
             </a>
         </li>
         <!-- Notifications Dropdown Menu -->
-        <notification v-bind:notifications="notifications"></notification>
+        @if(Auth::guard('admin')->check())
+            <notification v-bind:notifications="notifications"></notification>
+        @endif
         <li class="nav-item">
             <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
                 <i class="fas fa-th-large"></i>
@@ -120,10 +124,10 @@
                 @elseif(Auth::guard('marketer')->check())
                     @if(!empty(marketer()->user()->photo_profile))
                         <img src="{{ it()->url(marketer()->user()->photo_profile) }}" class="img-circle elevation-2"
-                             alt="{{ marketer()->user()->{'name_'.app('l')} }}">
+                             alt="{{ marketer()->user()->{'first_name_'.app('l')} }}">
                     @else
                         <img src="{{ url('assets') }}/img/avatar5.png" class="img-circle elevation-2"
-                             alt="{{ marketer()->user()->{'name_'.app('l')} }}">
+                             alt="{{ marketer()->user()->{'first_name_'.app('l')} }}">
                     @endif
                 @endif
 
@@ -135,7 +139,7 @@
                        class="d-block">{{ admin()->user()->name}}</a>
                 @elseif(Auth::guard('marketer')->check())
                     <a href="{{ url('marketer/account') }}"
-                       class="d-block">{{ marketer()->user()->{'name_'.app('l')} }}</a>
+                       class="d-block">{{ marketer()->user()->{'first_name_'.app('l')} }}</a>
                 @endif
             </div>
         </div>

@@ -45,10 +45,10 @@ class NotifyNewClient extends Notification
     public function toDatabase($notifiable)
     {
         $marketer_id = $this->client->marketer_id;
-        $marketer = Marketer::select('name_ar')->where('id', $marketer_id)->get();
+        $marketer = Marketer::select('first_name_ar')->where('id', $marketer_id)->get();
         return [
             'clients' => $this->client,
-            'marketer' => $marketer[0]->name_ar,
+            'marketer' => $marketer[0]->first_name_ar,
         ];
     }
 

@@ -63,7 +63,6 @@ class ShippingController extends Controller
             {
                 $data = $request->except("_token", "_method");
             	$data['admin_id'] = admin()->id();
-            	dd($data);
 		  		$shipping = Shipping::create($data);
                 $redirect = isset($request["add_back"])?"/create":"";
                 return redirectWithSuccess(aurl('shipping'.$redirect), trans('admin.added')); }

@@ -134,13 +134,7 @@
                 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
                     <div class="form-group">
                         {!! Form::label('status',trans('admin.status'),['class'=>'control-label']) !!}
-                        {!! Form::select('status', ['active'=>'Active', 'inactive'=>'Inactive'], $cleint->status ,['class'=>'form-control','placeholder'=>trans('admin.status')]) !!}
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                    <div class="form-group">
-                        {!! Form::label('status',trans('admin.status'),['class'=>'control-label']) !!}
-                        {!! Form::select('status', ['active'=>'Active', 'inactive'=>'Inactive'], $cleint->status ,['class'=>'form-control','placeholder'=>trans('admin.status')]) !!}
+                        {!! Form::select('status', ['active'=>trans('admin.active'), 'inactive'=>trans('admin.inactive')], $cleint->status ,['class'=>'form-control','placeholder'=>trans('admin.status')]) !!}
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 photo_profile">

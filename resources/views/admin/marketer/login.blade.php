@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ trans('admin.login_page') }}</title>
+    <title>{{ trans('admin.marketers_login_page') }}</title>
     <!-- Google Font: Source Sans Pro -->
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ url('assets') }}/plugins/fontawesome-free/css/all.min.css">
@@ -53,7 +53,7 @@
             @endif
         </div>
         <div class="card-body">
-            <p class="login-box-msg">{{ trans('admin.login_page') }}</p>
+            <p class="login-box-msg">{{ trans('admin.marketers_login_page') }}</p>
             <form method="post">
                 @honeypot
                 {!! csrf_field() !!}
